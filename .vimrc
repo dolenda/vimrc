@@ -26,6 +26,8 @@ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 Plug 'lervag/vimtex'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'elmcast/elm-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -104,9 +106,21 @@ endif
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+"automatic saving of foldings
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 set t_Co=256   " This is may or may not needed.
 
 set background=dark
 colorscheme PaperColor
 
+
+"UltiSnips config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
